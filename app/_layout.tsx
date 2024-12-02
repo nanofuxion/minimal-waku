@@ -3,8 +3,9 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import 'react-native-reanimated';
+import { LightNodeProvider } from "@waku/react";
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 
@@ -28,6 +29,8 @@ export default function RootLayout() {
   }
 
   return (
+    <LightNodeProvider
+      options={{ defaultBootstrap: true }}>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -35,5 +38,6 @@ export default function RootLayout() {
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
+    </LightNodeProvider>
   );
 }
