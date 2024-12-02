@@ -4,6 +4,7 @@ const { getDefaultConfig } = require("expo/metro-config");
 const webBlacklistedModules = [
   "@waku/core",
   "@waku/sdk",
+  "@waku/react"
 ];
 
 /** @type {import('expo/metro-config').MetroConfig} */
